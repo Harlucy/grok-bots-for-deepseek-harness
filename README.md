@@ -4,13 +4,13 @@
 
 ## 插件源地址
 
-仓库启用 GitHub Pages 后（Settings → Pages → Deploy from a branch → `main` / `root`）：
+已启用 GitHub Pages（Deploy from a branch → `main` / `root`），插件源地址：
 
 ```
 https://harlucy.github.io/grok-bots-for-deepseek-harness/index.json
 ```
 
-未启用 Pages 前，也可以直接用 raw 地址作为插件源：
+备用 raw 地址（不经 Pages，推送后立即可用）：
 
 ```
 https://raw.githubusercontent.com/Harlucy/grok-bots-for-deepseek-harness/main/index.json

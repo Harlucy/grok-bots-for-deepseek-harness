@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-sable-game-art",
+  "version": "0.1.0",
+  "description": "把游戏概念转化为风格指南、配色方案和供你图像工具使用的提示词表。可切分精灵图，并检查你的美术资源是否存在配色和网格偏移。",
+  "author": "Danny Limanseta",
+  "homepage": "https://x.ai/bot/marketplace/bots/sable-game-art",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/sable-game-art"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "design"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

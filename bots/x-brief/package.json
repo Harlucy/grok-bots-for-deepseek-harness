@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-x-brief",
+  "version": "0.1.0",
+  "description": "把你选定的 X 账号和话题转化为一份简短的每日简报。读取你的 X 连接或你粘贴的账号，绝不替你发帖。",
+  "author": "Dan McAteer",
+  "homepage": "https://x.ai/bot/marketplace/bots/x-brief",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/x-brief"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

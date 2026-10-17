@@ -1,0 +1,34 @@
+{
+  "name": "dsh-plugin-grok-overheard",
+  "version": "0.1.0",
+  "description": "监视 Reddit、Hacker News、新闻网站和 X 上对你的名字、品牌和网址的第三方提及，当有足够分量的内容时发送工作日简报。没有动静的日子保持安静，绝不替你发帖。",
+  "author": "Lenny Rachitsky",
+  "homepage": "https://x.ai/bot/marketplace/bots/overheard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/overheard"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

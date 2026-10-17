@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-startup-qa-bot",
+  "version": "0.1.0",
+  "description": "每个工作日用自己的测试账号走查你的产品，告诉你上线了什么、下线了什么、哪里坏了（附复现步骤和截图），以及哪些通话需要你。读取自己的验证邮件或使用粘贴的验证码，绝不触碰真实数据。",
+  "author": "Shub Gaur",
+  "homepage": "https://x.ai/bot/marketplace/bots/startup-qa-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/startup-qa-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "product"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

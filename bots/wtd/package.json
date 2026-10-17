@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-wtd",
+  "version": "0.1.0",
+  "description": "WTD 是面向市场运营的 VIP 接待策划伙伴：围绕重头活动和票务批次的项目计划与状态节奏、提名表跟踪、营销可见的状态中心，以及演示文稿或议程。销售负责邀请宾客；这个机器人让计划和状态保持清晰，同时不泄露私人……",
+  "author": "Jenna Nanpei",
+  "homepage": "https://x.ai/bot/marketplace/bots/wtd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/wtd"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-marketing-analyst",
+  "version": "0.1.0",
+  "description": "把广告平台导出数据转化为带解读的周报和月报，用真实数字及来源回答报表问题，并对照你设定的阈值监控花费。绝不触碰广告系列、绝不更改预算、未经你同意绝不发送。",
+  "author": "Josh Kim",
+  "homepage": "https://x.ai/bot/marketplace/bots/marketing-analyst",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/marketing-analyst"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

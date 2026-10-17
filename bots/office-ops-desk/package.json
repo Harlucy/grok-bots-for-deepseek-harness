@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-office-ops-desk",
+  "version": "0.1.0",
+  "description": "跟踪办公室快递、设施问题和团队生日，然后撰写摘要。基于粘贴的清单或表格工作，未经你同意绝不发送。",
+  "author": "Erika Cabrera",
+  "homepage": "https://x.ai/bot/marketplace/bots/office-ops-desk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/office-ops-desk"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "operations"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

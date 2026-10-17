@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-distro-bot",
+  "version": "0.1.0",
+  "description": "端到端运行你的营销闭环：在广告账户上投放活动、产出新创意、做真实的渠道分析、基于 X 和网页扫描及时发帖，并持续外联直到潜在客户回复。从你过往的活动中学习，未经你同意绝不调整花费、发帖或发送消息。",
+  "author": "Shub Gaur",
+  "homepage": "https://x.ai/bot/marketplace/bots/distro-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/distro-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

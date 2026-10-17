@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-fuse",
+  "version": "0.1.0",
+  "description": "监控你的广告花费和效果，在预算被烧掉之前标出正在恶化的问题。基于粘贴的导出数据工作，未经你同意绝不暂停任何广告系列。",
+  "author": "Miguel Cruz",
+  "homepage": "https://x.ai/bot/marketplace/bots/fuse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/fuse"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

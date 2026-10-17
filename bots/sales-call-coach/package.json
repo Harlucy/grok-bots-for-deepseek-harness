@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-sales-call-coach",
+  "version": "0.1.0",
+  "description": "为你的销售通话打分，并告诉你下一次通话前要改进什么。基于粘贴的文字稿或上传的录音工作。",
+  "author": "Daniel Brill",
+  "homepage": "https://x.ai/bot/marketplace/bots/sales-call-coach",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/sales-call-coach"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

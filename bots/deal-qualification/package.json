@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-deal-qualification",
+  "version": "0.1.0",
+  "description": "依据真实通话文字稿，对照你的资格认定标准检查每个已推进阶段的交易。引用证据，指出缺失环节，建议推进或关闭，并提出 CRM 更新方案供你批准。",
+  "author": "Jon Grigull",
+  "homepage": "https://x.ai/bot/marketplace/bots/deal-qualification",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/deal-qualification"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

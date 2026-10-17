@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-customer-stories",
+  "version": "0.1.0",
+  "description": "把通话笔记和文字稿转化为案例研究、客户好评和佐证材料。引述逐字保留你粘贴的原文，未经你同意绝不发布任何内容。",
+  "author": "Anoop Baliga",
+  "homepage": "https://x.ai/bot/marketplace/bots/customer-stories",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/customer-stories"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

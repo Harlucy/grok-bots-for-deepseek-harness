@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-critiquito",
+  "version": "0.1.0",
+  "description": "把截图或 Figma 链接转化为按优先级排序、可落地执行的设计点评，覆盖层级、字体、配色、文案和无障碍，绝不修改你的文件。",
+  "author": "Manuel Muñoz Solera",
+  "homepage": "https://x.ai/bot/marketplace/bots/critiquito",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/critiquito"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "design"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

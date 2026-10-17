@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-luma-pages",
+  "version": "0.1.0",
+  "description": "为市场活动人员搭建并更新私密 Luma 活动页面：文案、品牌、报名设置、名额与候补名单，以及报名名单整理。可与 Notion 文档智能体搭配，让活动简报与 Luma 页面保持同步。",
+  "author": "Jenna Nanpei",
+  "homepage": "https://x.ai/bot/marketplace/bots/luma-pages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/luma-pages"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

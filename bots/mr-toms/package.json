@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-mr-toms",
+  "version": "0.1.0",
+  "description": "安排面试轮次、为面试官做准备，并跟进卡住的环节。基于你的日历或粘贴的名单工作，未经你同意绝不给候选人发邮件。",
+  "author": "Tommy Hansen",
+  "homepage": "https://x.ai/bot/marketplace/bots/mr-toms",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/mr-toms"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "recruiting & people"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-call-follow-ups",
+  "version": "0.1.0",
+  "description": "把每通录音通话转化为用你的口吻写的跟进邮件、下一步行动笔记和 CRM 更新，包括你团队依赖的资格认定字段。监视 Gong 和 Granola 上的新通话，未经你同意绝不发送或保存任何内容。",
+  "author": "Daniel Brill",
+  "homepage": "https://x.ai/bot/marketplace/bots/call-follow-ups",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/call-follow-ups"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

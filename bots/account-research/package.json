@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-account-research",
+  "version": "0.1.0",
+  "description": "在会议、交易复盘或制定客户计划之前深入研究单个客户：汇总公司变化、关键人物、关系历史、悬而未决的问题，以及每项发现背后的来源。",
+  "author": "Stefan Markarian",
+  "homepage": "https://x.ai/bot/marketplace/bots/account-research",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/account-research"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

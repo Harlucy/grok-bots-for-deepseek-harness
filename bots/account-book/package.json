@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-account-book",
+  "version": "0.1.0",
+  "description": "研究你要销售的客户公司，撰写通话前简报与客户计划。基于公开网络和你粘贴的笔记工作，未经你同意绝不发送任何内容。",
+  "author": "Anoop Baliga",
+  "homepage": "https://x.ai/bot/marketplace/bots/account-book",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/account-book"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

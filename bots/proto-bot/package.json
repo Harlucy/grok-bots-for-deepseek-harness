@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-proto-bot",
+  "version": "0.1.0",
+  "description": "把你每天的想法变成真实应用中的可用、可分享原型，以草稿 PR 形式交付，附点击路径截图和一段短视频，另外还有 Figma 稿、图片和表情包。未经你同意绝不合并、发布或分享。",
+  "author": "Shub Gaur",
+  "homepage": "https://x.ai/bot/marketplace/bots/proto-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/proto-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "product"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

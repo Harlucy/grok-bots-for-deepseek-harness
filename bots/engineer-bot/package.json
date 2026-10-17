@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-engineer-bot",
+  "version": "0.1.0",
+  "description": "放手式工程主管。它接收任务、启动云端智能体、每 30 分钟检查一次 PR，只在需要合并时找你。适合想要这套流水线但不绑定特定仓库的人。",
+  "author": "Lingxi Li",
+  "homepage": "https://x.ai/bot/marketplace/bots/engineer-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/engineer-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "engineering"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

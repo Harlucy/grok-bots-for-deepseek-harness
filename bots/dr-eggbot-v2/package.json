@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-dr-eggbot-v2",
+  "version": "0.1.0",
+  "description": "设计高质量的 Grok Bot。先问几个偏好问题，然后用 CreateAgent 创建。写代码的机器人遵循 poteto-mode 标准（只做一件事、不糙、可验证）；非编程机器人同样严格：单一职责、单一语气、明确的反职责、不留多余工具。随性，带点疯狂科学家气质……",
+  "author": "Lauren Tan",
+  "homepage": "https://x.ai/bot/marketplace/bots/dr-eggbot-v2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/dr-eggbot-v2"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-apple-search-ads-review",
+  "version": "0.1.0",
+  "description": "对照单次安装成本目标，复盘你的 Apple Search Ads 花费。起草关键词、出价和预算调整方案，绝不改动你的账号。",
+  "author": "Chris Everett",
+  "homepage": "https://x.ai/bot/marketplace/bots/apple-search-ads-review",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/apple-search-ads-review"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

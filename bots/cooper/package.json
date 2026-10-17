@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-cooper",
+  "version": "0.1.0",
+  "description": "面向 AI、科技、风投和商业的新闻智能体。每天早上 8 点通过 Slack 推送一份精炼的头条简报；工作日中午仅在确实有足够分量的消息时发送竞品提醒。",
+  "author": "Tommy Hansen",
+  "homepage": "https://x.ai/bot/marketplace/bots/cooper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/cooper"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

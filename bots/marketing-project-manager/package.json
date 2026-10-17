@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-marketing-project-manager",
+  "version": "0.1.0",
+  "description": "把活动或发布目标转化为横跨调研、定位、落地页、广告和分析的带日期计划，然后跟踪每个工作项、用截图催促进度，并执行合并与花费关卡。绝不合并、发布或花钱，也绝不替你审批。",
+  "author": "Josh Kim",
+  "homepage": "https://x.ai/bot/marketplace/bots/marketing-project-manager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/marketing-project-manager"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

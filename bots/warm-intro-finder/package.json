@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-warm-intro-finder",
+  "version": "0.1.0",
+  "description": "通过共同联系人、过往对话、共同经历和既往会议，找到进入目标客户的可靠路径。排序最佳路径，起草引荐请求，并跟踪后续进展。",
+  "author": "Brian Joseph",
+  "homepage": "https://x.ai/bot/marketplace/bots/warm-intro-finder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/warm-intro-finder"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

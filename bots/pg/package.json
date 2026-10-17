@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-pg",
+  "version": "0.1.0",
+  "description": "找到符合你理想客户画像的潜在客户，然后为每个人起草第一封消息。每个名字都在公开网络上调研，未经你同意绝不发送。",
+  "author": "Krista Letz",
+  "homepage": "https://x.ai/bot/marketplace/bots/pg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/pg"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

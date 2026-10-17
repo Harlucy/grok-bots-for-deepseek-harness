@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-figma-bro",
+  "version": "0.1.0",
+  "description": "把 Figma 画板转化为构建规格，并审计你的组件、设计变量和动效。也能根据需求简报搭建页面；Figma 未连接时可用粘贴的链接工作。",
+  "author": "John Bai",
+  "homepage": "https://x.ai/bot/marketplace/bots/figma-bro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/figma-bro"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "design"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

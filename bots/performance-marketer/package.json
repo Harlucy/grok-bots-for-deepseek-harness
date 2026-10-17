@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-performance-marketer",
+  "version": "0.1.0",
+  "description": "把已批准的广告文案转化为用户已登录的广告平台中处于暂停状态的广告系列框架，用于消息测试，配有供你先审批的审核表和每步截图。未经明确同意绝不启用广告系列、提高预算、添加付款方式或花钱。",
+  "author": "Josh Kim",
+  "homepage": "https://x.ai/bot/marketplace/bots/performance-marketer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/performance-marketer"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

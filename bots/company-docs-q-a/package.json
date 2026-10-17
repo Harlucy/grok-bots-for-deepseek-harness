@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-company-docs-q-a",
+  "version": "0.1.0",
+  "description": "优先依据实时文档回答产品与操作问题，其次使用已连接的知识来源，并且始终标注来源。为想要可信内部知识机器人的人而打造。",
+  "author": "Anoop Baliga",
+  "homepage": "https://x.ai/bot/marketplace/bots/company-docs-q-a",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/company-docs-q-a"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-qa-bot",
+  "version": "0.1.0",
+  "description": "在线上部署中充当你的 QA：运行验收清单，在上线前给出通过或失败。",
+  "author": "Ulysses Ng",
+  "homepage": "https://x.ai/bot/marketplace/bots/qa-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/qa-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "engineering"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

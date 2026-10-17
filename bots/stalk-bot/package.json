@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-stalk-bot",
+  "version": "0.1.0",
+  "description": "用独立的调研邮箱订阅竞品的邮件通讯和产品，录制并走完他们的新手引导，监视他们的网站、定价、更新日志、招聘信息和 X。每次脉冲都会对照你的定位报告变化，并以反向定位建议收尾，绝不发帖或联系……",
+  "author": "Shub Gaur",
+  "homepage": "https://x.ai/bot/marketplace/bots/stalk-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/stalk-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "product"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

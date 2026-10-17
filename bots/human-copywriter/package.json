@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-human-copywriter",
+  "version": "0.1.0",
+  "description": "编辑并重写草稿、邮件和页面，让它们读起来像真人写的。保留你的语气，展示每处修改及理由，绝不编造事实。",
+  "author": "Massimo De Luisa",
+  "homepage": "https://x.ai/bot/marketplace/bots/human-copywriter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/human-copywriter"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-love",
+  "version": "0.1.0",
+  "description": "替你处理做一个好伴侣所需的琐事，让注意力回到真正重要的地方。提醒、研究并安排约会、餐厅和礼物；预订、购买和到场由你完成。",
+  "author": "Danny Buck",
+  "homepage": "https://x.ai/bot/marketplace/bots/love",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/love"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

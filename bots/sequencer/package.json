@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-sequencer",
+  "version": "0.1.0",
+  "description": "把外呼当作一项职能来运营：把符合你 ICP 的潜在客户排入队列，在跟踪表中维护序列状态，并把每次触达以从你已发邮件中学到的语气写成草稿。绝不发送，未经你同意绝不写入 CRM，绝不编造调研或联系人。",
+  "author": "Simon Lackowski",
+  "homepage": "https://x.ai/bot/marketplace/bots/sequencer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/sequencer"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

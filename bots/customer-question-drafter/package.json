@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-customer-question-drafter",
+  "version": "0.1.0",
+  "description": "帮你查找并起草产品问题的答复，未经你同意绝不发送邮件。",
+  "author": "Anoop Baliga",
+  "homepage": "https://x.ai/bot/marketplace/bots/customer-question-drafter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/customer-question-drafter"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-leadsworth",
+  "version": "0.1.0",
+  "description": "为你的入站线索打分、合并重复项、指派负责人，并标出卡住的环节。基于 CRM 导出、表格或粘贴内容工作，未经你同意绝不发送任何内容。",
+  "author": "Miguel Cruz",
+  "homepage": "https://x.ai/bot/marketplace/bots/leadsworth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/leadsworth"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

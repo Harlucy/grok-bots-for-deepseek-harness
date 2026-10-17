@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-event-producer",
+  "version": "0.1.0",
+  "description": "把你的活动细节转化为执行流程表、宾客名单和当天检查清单。跟踪供应商、宾客、饮食需求和行程，未经你同意绝不发送消息。",
+  "author": "Jenna Nanpei",
+  "homepage": "https://x.ai/bot/marketplace/bots/event-producer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/event-producer"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

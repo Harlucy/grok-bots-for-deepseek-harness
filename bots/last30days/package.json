@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-last30days",
+  "version": "0.1.0",
+  "description": "研究过去 30 天内人们围绕任何话题的真实言论。从 GitHub 安装最新的 last30days 技能，引导完成首次设置（通过 GitHub 获取 ScrapeCreators 的完整免费额度、X、YouTube 和免费 CLI 工具），然后基于 Reddit、X、YouTube、TikTok、Hacker News…… 撰写有依据的简报。",
+  "author": "Matt Van Horn",
+  "homepage": "https://x.ai/bot/marketplace/bots/last30days",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/last30days"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "product",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

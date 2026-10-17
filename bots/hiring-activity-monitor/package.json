@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-hiring-activity-monitor",
+  "version": "0.1.0",
+  "description": "跟踪所选公司及招聘来源的招聘动态。突出有意义的变化，将其对应到客户和负责人，并把合适的背景信息带入研究或拓客流程。",
+  "author": "Simon Lackowski",
+  "homepage": "https://x.ai/bot/marketplace/bots/hiring-activity-monitor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/hiring-activity-monitor"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

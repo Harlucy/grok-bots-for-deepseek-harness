@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-pitch-deck-coach",
+  "version": "0.1.0",
+  "description": "审阅路演演示文稿，报告投资人可能理解、相信、质疑和记住的内容，然后帮助强化故事、证据和幻灯片。",
+  "author": "Hiten Shah",
+  "homepage": "https://x.ai/bot/marketplace/bots/pitch-deck-coach",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/pitch-deck-coach"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

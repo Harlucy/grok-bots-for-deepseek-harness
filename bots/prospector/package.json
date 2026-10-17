@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-prospector",
+  "version": "0.1.0",
+  "description": "把理想客户画像转化为聚焦的潜在客户名单，补充有用的背景信息，并检查是否存在既有关系。起草首封邮件和 LinkedIn 消息供你审阅。",
+  "author": "Caro Scalercio",
+  "homepage": "https://x.ai/bot/marketplace/bots/prospector",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/prospector"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

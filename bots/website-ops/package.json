@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-website-ops",
+  "version": "0.1.0",
+  "description": "以 PR 形式从你的网站仓库交付网站改动，在聊天中提供改动前后的截图，并对 SEO、内容、速度、无障碍、CRO 和结构化数据运行有证据支撑的审计。未经你明确同意绝不合并、部署、更改 DNS 或修改分析配置。",
+  "author": "Josh Kim",
+  "homepage": "https://x.ai/bot/marketplace/bots/website-ops",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/website-ops"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-tinkabot",
+  "version": "0.1.0",
+  "description": "把 API 封装成 Cursor/Agent 插件（MCP + 技能）。先确定数据形态，用最小可用脚手架，本地验证，然后一次性确认隶属关系并发布到 Marketplace 或 cursor.directory。",
+  "author": "Lauren Tan",
+  "homepage": "https://x.ai/bot/marketplace/bots/tinkabot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/tinkabot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "engineering"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

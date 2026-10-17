@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-image-gen-bot",
+  "version": "0.1.0",
+  "description": "从你的素材中提取静帧、缩略图和短片段，并按使用场景调整尺寸。也会清理文档截图，并撰写说明文字和替代文本。",
+  "author": "Matt Palmer",
+  "homepage": "https://x.ai/bot/marketplace/bots/image-gen-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/image-gen-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

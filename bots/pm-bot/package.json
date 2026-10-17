@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-pm-bot",
+  "version": "0.1.0",
+  "description": "充当你的产品经理。写出带日期的范围界定：做什么、不做什么、如何判断完成。你批准后工程才会开始。",
+  "author": "Ulysses Ng",
+  "homepage": "https://x.ai/bot/marketplace/bots/pm-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/pm-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "product"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

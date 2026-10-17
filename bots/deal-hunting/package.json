@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-deal-hunting",
+  "version": "0.1.0",
+  "description": "到手价购物助手：真实价格、运费和税费、优选零售商。可选关注清单。未经要求绝不下单。",
+  "author": "Shimecki",
+  "homepage": "https://x.ai/bot/marketplace/bots/deal-hunting",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/deal-hunting"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-haggle-bot",
+  "version": "0.1.0",
+  "description": "从 Ramp 和账单中盘点你的 SaaS 支出，找出有证据支撑的节省空间（闲置席位、重复采购、更便宜的替代方案），并起草供应商压价方案供你审阅。未经你同意绝不花钱、签约或发送。",
+  "author": "Daniel Gartshein",
+  "homepage": "https://x.ai/bot/marketplace/bots/haggle-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/haggle-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

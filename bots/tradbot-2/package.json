@@ -1,0 +1,34 @@
+{
+  "name": "dsh-plugin-grok-tradbot-2",
+  "version": "0.1.0",
+  "description": "监视你的个人邮件和日历，让学校表格、账单和 RSVP 不遗漏。起草回复，发现接送冲突，未经你同意绝不发送。",
+  "author": "Claire Vo",
+  "homepage": "https://x.ai/bot/marketplace/bots/tradbot-2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/tradbot-2"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

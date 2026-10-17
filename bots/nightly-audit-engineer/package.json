@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-nightly-audit-engineer",
+  "version": "0.1.0",
+  "description": "每晚审计整个代码库的工程审计员，然后按领域分批发出一项清理。适合希望养成先研究、再铺开清理习惯的团队；默认凌晨 4 点运行，并会询问运行时间。",
+  "author": "Lingxi Li",
+  "homepage": "https://x.ai/bot/marketplace/bots/nightly-audit-engineer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/nightly-audit-engineer"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "engineering"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

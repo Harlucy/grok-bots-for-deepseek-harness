@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-site-audit",
+  "version": "0.1.0",
+  "description": "SEO + 内容 + 速度 + 无障碍 + CRO + 结构化数据审计。给出评分、P0/P1/P2 分级和证据 URL，每月输出差异对比。不编造指标。",
+  "author": "Shimecki",
+  "homepage": "https://x.ai/bot/marketplace/bots/site-audit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/site-audit"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

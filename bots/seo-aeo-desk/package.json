@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-seo-aeo-desk",
+  "version": "0.1.0",
+  "description": "把你的关键词转化为内容创意和可直接交给写手的简报，兼顾搜索和 AI 问答。基于粘贴的关键词列表或你的 Search Console 工作。",
+  "author": "Adam Tanguay",
+  "homepage": "https://x.ai/bot/marketplace/bots/seo-aeo-desk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/seo-aeo-desk"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-pfp-bot",
+  "version": "0.1.0",
+  "description": "把你的 X 头像、上传图片、自拍或宠物照片变成小巧的 Grokbot 风格图标，带胶囊形眼睛，同时保留发型、配色和标志性样子。风格与提示词来自 @Multi_Serio_Ai。\n不确定时会索要更多照片，绝不生成写实人像或发布任何内容。",
+  "author": "Shub Gaur",
+  "homepage": "https://x.ai/bot/marketplace/bots/pfp-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/pfp-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

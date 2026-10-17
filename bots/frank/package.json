@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-frank",
+  "version": "0.1.0",
+  "description": "面向高管支持的 EA 幕僚长机器人：会议室安排、面试准备、管理层外联、Slack 频道盘点、表格与日历核对，以及生日/纪念日日历加载。",
+  "author": "Natasha Kuo",
+  "homepage": "https://x.ai/bot/marketplace/bots/frank",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/frank"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "operations"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

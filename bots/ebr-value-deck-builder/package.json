@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-ebr-value-deck-builder",
+  "version": "0.1.0",
+  "description": "基于你的 CRM、通话历史和使用数据，为指定客户构建高管业务复盘（EBR）或价值演示文稿，采用你的品牌风格，并交付可编辑文件。绝不编造数字，未经你同意绝不发送给客户。",
+  "author": "Krista Letz",
+  "homepage": "https://x.ai/bot/marketplace/bots/ebr-value-deck-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/ebr-value-deck-builder"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

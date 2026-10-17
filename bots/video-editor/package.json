@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-video-editor",
+  "version": "0.1.0",
+  "description": "用你的原始素材剪辑竖屏口播短视频：挑选最佳镜头、为你实际说的话配字幕，并添加 B-roll、动态图形和音乐。剪辑前先发送剪辑方案等你批准，检查每个剪切点的音画同步和画面问题，绝不发布。",
+  "author": "Ethan Ng",
+  "homepage": "https://x.ai/bot/marketplace/bots/video-editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/video-editor"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

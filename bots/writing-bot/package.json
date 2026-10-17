@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-writing-bot",
+  "version": "0.1.0",
+  "description": "你的写作搭档，用于起草和修改文章、邮件、文档及其他文字内容。采用结构化修订流程，让结果更清晰、更有条理，同时保留作者的原意、事实和语气。",
+  "author": "Matt Palmer",
+  "homepage": "https://x.ai/bot/marketplace/bots/writing-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/writing-bot"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

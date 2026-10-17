@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-tally",
+  "version": "0.1.0",
+  "description": "把你的 Google Ads、Meta 和 LinkedIn 导出数据整合成一份带解读的周报。在 Slack 用真实数字回答报表问题，未经你同意绝不发送。",
+  "author": "Miguel Cruz",
+  "homepage": "https://x.ai/bot/marketplace/bots/tally",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/tally"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

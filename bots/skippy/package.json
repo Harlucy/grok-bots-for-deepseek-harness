@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-skippy",
+  "version": "0.1.0",
+  "description": "旧金山街道清洁助手。粘贴地图坐标、地址或路口，它就会告诉你该路缘下一次官方清扫的时间。使用城市公开数据，绝不声称某处停车合法。",
+  "author": "Matt Palmer",
+  "homepage": "https://x.ai/bot/marketplace/bots/skippy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/skippy"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-flora",
+  "version": "0.1.0",
+  "description": "Flora 会维护一份私人家养植物养护日志和每周提醒。她在自己的电脑上建一份可以翻页的植物日记；即使别人也安装了她，你的植物也不会被复制过去。",
+  "author": "Rich Silver",
+  "homepage": "https://x.ai/bot/marketplace/bots/flora",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/flora"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

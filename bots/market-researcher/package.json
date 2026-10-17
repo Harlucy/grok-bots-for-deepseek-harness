@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-market-researcher",
+  "version": "0.1.0",
+  "description": "跟踪竞品的营销方式：广告与创意、落地页、优惠、定价、渠道组合、搜索重叠和内容节奏，然后每周交出带有截图和营销反制建议的变化简报。绝不发帖、联系任何人、注册任何服务或在广告上花钱。",
+  "author": "Josh Kim",
+  "homepage": "https://x.ai/bot/marketplace/bots/market-researcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/market-researcher"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "marketing"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

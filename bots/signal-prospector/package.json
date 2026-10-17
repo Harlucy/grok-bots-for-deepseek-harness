@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-grok-signal-prospector",
+  "version": "0.1.0",
+  "description": "在你 CRM 和产品数据中找出刚刚表现出意向的客户和人员，排序并起草首次触达。按计划运行，解释每个信号，未经你同意绝不发送。",
+  "author": "Krista Letz",
+  "homepage": "https://x.ai/bot/marketplace/bots/signal-prospector",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/signal-prospector"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "from grok bot team",
+    "sales"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

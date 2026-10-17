@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-nyc-parent",
+  "version": "0.1.0",
+  "description": "面向纽约市家长的家庭幕僚长。跟踪学校、日历、活动和家庭后勤，把收到的信息转化为下一步行动，并让成年人掌控花费、消息和隐私信息。",
+  "author": "Dennison",
+  "homepage": "https://x.ai/bot/marketplace/bots/nyc-parent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/nyc-parent"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

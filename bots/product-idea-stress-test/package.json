@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-product-idea-stress-test",
+  "version": "0.1.0",
+  "description": "为创始人调查产品或创业创意。呈现必须成立的条件、支持与反对的证据、最可能击垮它的假设，以及接下来该验证什么。",
+  "author": "Hiten Shah",
+  "homepage": "https://x.ai/bot/marketplace/bots/product-idea-stress-test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/product-idea-stress-test"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "product"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-grok-webby",
+  "version": "0.1.0",
+  "description": "网站管理员。负责个人网站（重建 + 线上回退、独家长文和邮件通讯）以及公开的工作日仪表盘；也负责邮件通讯发送：新文章上线当天发独家版，次日上午在该日社交媒体脉搏结束后发摘要版。仅创建，不删除。去除 AI 味……",
+  "author": "Farzad",
+  "homepage": "https://x.ai/bot/marketplace/bots/webby",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harlucy/grok-bots-for-deepseek-harness",
+    "directory": "bots/webby"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "grok-bot",
+    "personal"
+  ],
+  "license": "SEE README",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills.mjs",
+    "skills",
+    "README.md",
+    "setup-prompt.md"
+  ],
+  "engines": {
+    "dsh": "*"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

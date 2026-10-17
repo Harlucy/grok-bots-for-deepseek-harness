@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness 的 Grok 机器人</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.65 -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif; background: #f6f7f9; color: #1c1e21; }
+  @media (prefers-color-scheme: dark) { body { background: #15171a; color: #e6e8eb; } }
+  header { max-width: 1180px; margin: 0 auto; padding: 36px 20px 10px; }
+  h1 { margin: 0 0 8px; font-size: 26px; letter-spacing: .3px; }
+  .sub { color: #6b7280; margin: 0 0 14px; }
+  @media (prefers-color-scheme: dark) { .sub { color: #9aa2ad; } }
+  .stats { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .pill { background: #e8eaee; border-radius: 999px; padding: 3px 12px; font-size: 13px; color: #4b5563; }
+  @media (prefers-color-scheme: dark) { .pill { background: #24272c; color: #b8c0ca; } }
+  .toolbar { position: sticky; top: 0; z-index: 5; backdrop-filter: blur(8px); background: rgba(246,247,249,.86); border-bottom: 1px solid #e3e6ea; padding: 10px 20px; margin-top: 18px; }
+  @media (prefers-color-scheme: dark) { .toolbar { background: rgba(21,23,26,.86); border-color: #2b2f35; } }
+  .toolbar .inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  input[type=search] { flex: 1 1 260px; min-width: 200px; padding: 8px 12px; border: 1px solid #cfd4da; border-radius: 8px; font-size: 14px; background: Canvas; color: CanvasText; }
+  nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav a { font-size: 13px; text-decoration: none; color: #374151; background: #e8eaee; padding: 4px 10px; border-radius: 999px; }
+  @media (prefers-color-scheme: dark) { nav a { color: #c9d1da; background: #24272c; } }
+  main { max-width: 1180px; margin: 0 auto; padding: 8px 20px 60px; }
+  h2 { font-size: 18px; margin: 34px 0 12px; display: flex; align-items: baseline; gap: 8px; }
+  h2 .cnt { font-size: 12px; font-weight: 400; color: #6b7280; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  .card { background: #fff; border: 1px solid #e3e6ea; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; }
+  @media (prefers-color-scheme: dark) { .card { background: #1c1f24; border-color: #2b2f35; } }
+  .card h3 { margin: 0; font-size: 16px; }
+  .card .orig { margin: 2px 0 8px; font-size: 12px; color: #8a919b; }
+  .card .desc { margin: 0 0 12px; font-size: 13.5px; color: #3f4650; flex: 1; }
+  @media (prefers-color-scheme: dark) { .card .desc { color: #c3cad3; } }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 11.5px; color: #6b7280; margin: 0; }
+  .lab { background: #eef1f4; border-radius: 6px; padding: 1px 7px; }
+  .lab-skill { background: #e7f0e9; color: #2f6b3a; }
+  @media (prefers-color-scheme: dark) { .lab { background: #262a30; color: #b8c0ca; } .lab-skill { background: #22342a; color: #86c79a; } }
+  .author { margin-left: 2px; }
+  .src { margin-left: auto; color: #2563eb; text-decoration: none; }
+  .hidden { display: none !important; }
+  .empty { text-align: center; color: #6b7280; padding: 40px 0; display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>DeepSeek Harness 的 Grok 机器人</h1>
+  <p class="sub">从 Grok Bot 市场转换而来的 90 个智能体预设，每个都附带自己的技能。</p>
+  <div class="stats">
+    <span class="pill">90 个机器人</span>
+    <span class="pill">共 450 项技能</span>
+    <span class="pill">10 个分类</span>
+    <span class="pill">内容已汉化，原始数据见 index.json</span>
+  </div>
+</header>
+<div class="toolbar"><div class="inner">
+  <input id="q" type="search" placeholder="搜索标题、描述、分类或关键词…">
+  <nav><a href="#from-grok-bot-team">来自 Grok Bot 团队</a><a href="#sales">销售</a><a href="#marketing">市场营销</a><a href="#operations">运营</a><a href="#personal">个人</a><a href="#product">产品</a><a href="#design">设计</a><a href="#engineering">工程</a><a href="#recruiting-people">招聘与人事</a><a href="#other">其他</a></nav>
+</div></div>
+<main>
+<section class="cat" data-cat="from-grok-bot-team"><h2>来自 Grok Bot 团队<span class="cnt">54</span></h2><div class="grid"><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-import-bot">
+  <h3>导入机器人</h3>
+  <p class="orig">Import Bot</p>
+  <p class="desc">将你在 Claude Cowork、Codex、ChatGPT、OpenClaw 和 Hermes 中的配置导入 Grok Bot，然后创建覆盖这些配置的专家机器人，或补充到你已有的机器人中。不更改旧工具中的任何内容，并在保存前清除密钥。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">20 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/import-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-stalk-bot">
+  <h3>跟踪机器人</h3>
+  <p class="orig">Stalk Bot</p>
+  <p class="desc">用独立的调研邮箱订阅竞品的邮件通讯和产品，录制并走完他们的新手引导，监视他们的网站、定价、更新日志、招聘信息和 X。每次脉冲都会对照你的定位报告变化，并以反向定位建议收尾，绝不发帖或联系……</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">19 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/stalk-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-account-book">
+  <h3>客户研究台</h3>
+  <p class="orig">Account Research Desk</p>
+  <p class="desc">研究你要销售的客户公司，撰写通话前简报与客户计划。基于公开网络和你粘贴的笔记工作，未经你同意绝不发送任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">11 项技能</span><span class="author">作者：Anoop Baliga</span><a class="src" href="https://x.ai/bot/marketplace/bots/account-book" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-sell-bot">
+  <h3>销售机器人</h3>
+  <p class="orig">Sell Bot</p>
+  <p class="desc">贯穿整个客户旅程：用你的口吻外联、预约通话并准备和跟进、报价与合同，然后是激活、支持与账单答疑，以及增购。一切都以草稿形式供你审阅，只发送你批准的内容，一次一条消息。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">11 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/sell-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-fuse">
+  <h3>广告花费监控</h3>
+  <p class="orig">Ad Spend Watch</p>
+  <p class="desc">监控你的广告花费和效果，在预算被烧掉之前标出正在恶化的问题。基于粘贴的导出数据工作，未经你同意绝不暂停任何广告系列。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Miguel Cruz</span><a class="src" href="https://x.ai/bot/marketplace/bots/fuse" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-proto-bot">
+  <h3>原型机器人</h3>
+  <p class="orig">Proto Bot</p>
+  <p class="desc">把你每天的想法变成真实应用中的可用、可分享原型，以草稿 PR 形式交付，附点击路径截图和一段短视频，另外还有 Figma 稿、图片和表情包。未经你同意绝不合并、发布或分享。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/proto-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-sherlock">
+  <h3>人才发现</h3>
+  <p class="orig">Talent Discovery</p>
+  <p class="desc">为在招职位寻找符合你标准、且尚未进入你 ATS 的候选人。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Tommy Hansen</span><a class="src" href="https://x.ai/bot/marketplace/bots/sherlock" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-ai-search-visibility">
+  <h3>AI 搜索可见度</h3>
+  <p class="orig">AI Search Visibility</p>
+  <p class="desc">检查 AI 助手和 Google 是否会推荐你，以及它们转而推荐了谁。从买家真正会问的几个问题入手。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Adam Tanguay</span><a class="src" href="https://x.ai/bot/marketplace/bots/ai-search-visibility" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-echo">
+  <h3>会议复盘演示文稿</h3>
+  <p class="orig">Meeting Recap Deck</p>
+  <p class="desc">把你的会议笔记变成沿用你幻灯片模板的复盘演示文稿。基于你粘贴或上传的笔记工作，绝不编造引述。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Krista Letz</span><a class="src" href="https://x.ai/bot/marketplace/bots/echo" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-event-producer">
+  <h3>活动策划</h3>
+  <p class="orig">Event Producer</p>
+  <p class="desc">把你的活动细节转化为执行流程表、宾客名单和当天检查清单。跟踪供应商、宾客、饮食需求和行程，未经你同意绝不发送消息。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Jenna Nanpei</span><a class="src" href="https://x.ai/bot/marketplace/bots/event-producer" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-event-request-desk">
+  <h3>活动请求台</h3>
+  <p class="orig">Event Request Desk</p>
+  <p class="desc">为每个活动、赞助和演讲邀约打分，并起草同意或拒绝的答复。基于 Slack 频道或粘贴内容工作，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Emma Weyrauch</span><a class="src" href="https://x.ai/bot/marketplace/bots/event-request-desk" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-figma-bro">
+  <h3>figma bro</h3>
+  <p class="orig">figma bro</p>
+  <p class="desc">把 Figma 画板转化为构建规格，并审计你的组件、设计变量和动效。也能根据需求简报搭建页面；Figma 未连接时可用粘贴的链接工作。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：John Bai</span><a class="src" href="https://x.ai/bot/marketplace/bots/figma-bro" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-mr-toms">
+  <h3>招聘协调员</h3>
+  <p class="orig">Recruiting Coordinator</p>
+  <p class="desc">安排面试轮次、为面试官做准备，并跟进卡住的环节。基于你的日历或粘贴的名单工作，未经你同意绝不给候选人发邮件。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Tommy Hansen</span><a class="src" href="https://x.ai/bot/marketplace/bots/mr-toms" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-pfp-bot">
+  <h3>头像机器人</h3>
+  <p class="orig">Pfp Bot</p>
+  <p class="desc">把你的 X 头像、上传图片、自拍或宠物照片变成小巧的 Grokbot 风格图标，带胶囊形眼睛，同时保留发型、配色和标志性样子。风格与提示词来自 @Multi_Serio_Ai。
+不确定时会索要更多照片，绝不生成写实人像或发布任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/pfp-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-pg">
+  <h3>外呼拓客</h3>
+  <p class="orig">Outbound Prospecting</p>
+  <p class="desc">找到符合你理想客户画像的潜在客户，然后为每个人起草第一封消息。每个名字都在公开网络上调研，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Krista Letz</span><a class="src" href="https://x.ai/bot/marketplace/bots/pg" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-sales-call-coach">
+  <h3>销售通话教练</h3>
+  <p class="orig">Sales Call Coach</p>
+  <p class="desc">为你的销售通话打分，并告诉你下一次通话前要改进什么。基于粘贴的文字稿或上传的录音工作。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Daniel Brill</span><a class="src" href="https://x.ai/bot/marketplace/bots/sales-call-coach" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-apple-search-ads-review">
+  <h3>Apple Search Ads 复盘</h3>
+  <p class="orig">Apple Search Ads Review</p>
+  <p class="desc">对照单次安装成本目标，复盘你的 Apple Search Ads 花费。起草关键词、出价和预算调整方案，绝不改动你的账号。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Chris Everett</span><a class="src" href="https://x.ai/bot/marketplace/bots/apple-search-ads-review" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-critiquito">
+  <h3>Critiquito：设计点评</h3>
+  <p class="orig">Critiquito: Design Critique</p>
+  <p class="desc">把截图或 Figma 链接转化为按优先级排序、可落地执行的设计点评，覆盖层级、字体、配色、文案和无障碍，绝不修改你的文件。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Manuel Muñoz Solera</span><a class="src" href="https://x.ai/bot/marketplace/bots/critiquito" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-distro-bot">
+  <h3>分发机器人</h3>
+  <p class="orig">Distro Bot</p>
+  <p class="desc">端到端运行你的营销闭环：在广告账户上投放活动、产出新创意、做真实的渠道分析、基于 X 和网页扫描及时发帖，并持续外联直到潜在客户回复。从你过往的活动中学习，未经你同意绝不调整花费、发帖或发送消息。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/distro-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-leadsworth">
+  <h3>线索管道台</h3>
+  <p class="orig">Lead Pipeline Desk</p>
+  <p class="desc">为你的入站线索打分、合并重复项、指派负责人，并标出卡住的环节。基于 CRM 导出、表格或粘贴内容工作，未经你同意绝不发送任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Miguel Cruz</span><a class="src" href="https://x.ai/bot/marketplace/bots/leadsworth" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-office-ops-desk">
+  <h3>办公室运营台</h3>
+  <p class="orig">Office Ops Desk</p>
+  <p class="desc">跟踪办公室快递、设施问题和团队生日，然后撰写摘要。基于粘贴的清单或表格工作，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Erika Cabrera</span><a class="src" href="https://x.ai/bot/marketplace/bots/office-ops-desk" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-seo-aeo-desk">
+  <h3>SEO 与 AEO 台</h3>
+  <p class="orig">SEO &amp; AEO Desk</p>
+  <p class="desc">把你的关键词转化为内容创意和可直接交给写手的简报，兼顾搜索和 AI 问答。基于粘贴的关键词列表或你的 Search Console 工作。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Adam Tanguay</span><a class="src" href="https://x.ai/bot/marketplace/bots/seo-aeo-desk" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-call-follow-ups">
+  <h3>通话跟进</h3>
+  <p class="orig">Call Follow-Ups</p>
+  <p class="desc">把每通录音通话转化为用你的口吻写的跟进邮件、下一步行动笔记和 CRM 更新，包括你团队依赖的资格认定字段。监视 Gong 和 Granola 上的新通话，未经你同意绝不发送或保存任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Daniel Brill</span><a class="src" href="https://x.ai/bot/marketplace/bots/call-follow-ups" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-haggle-bot">
+  <h3>砍价机器人</h3>
+  <p class="orig">Haggle Bot</p>
+  <p class="desc">从 Ramp 和账单中盘点你的 SaaS 支出，找出有证据支撑的节省空间（闲置席位、重复采购、更便宜的替代方案），并起草供应商压价方案供你审阅。未经你同意绝不花钱、签约或发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Daniel Gartshein</span><a class="src" href="https://x.ai/bot/marketplace/bots/haggle-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-image-gen-bot">
+  <h3>静帧与短片台</h3>
+  <p class="orig">Stills &amp; Clips Desk</p>
+  <p class="desc">从你的素材中提取静帧、缩略图和短片段，并按使用场景调整尺寸。也会清理文档截图，并撰写说明文字和替代文本。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Matt Palmer</span><a class="src" href="https://x.ai/bot/marketplace/bots/image-gen-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-tally">
+  <h3>付费媒体报告台</h3>
+  <p class="orig">Paid Media Report Desk</p>
+  <p class="desc">把你的 Google Ads、Meta 和 LinkedIn 导出数据整合成一份带解读的周报。在 Slack 用真实数字回答报表问题，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Miguel Cruz</span><a class="src" href="https://x.ai/bot/marketplace/bots/tally" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-wtd">
+  <h3>WTD</h3>
+  <p class="orig">WTD</p>
+  <p class="desc">WTD 是面向市场运营的 VIP 接待策划伙伴：围绕重头活动和票务批次的项目计划与状态节奏、提名表跟踪、营销可见的状态中心，以及演示文稿或议程。销售负责邀请宾客；这个机器人让计划和状态保持清晰，同时不泄露私人……</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Jenna Nanpei</span><a class="src" href="https://x.ai/bot/marketplace/bots/wtd" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-ebr-value-deck-builder">
+  <h3>EBR 与价值演示文稿构建器</h3>
+  <p class="orig">EBR &amp; Value Deck Builder</p>
+  <p class="desc">基于你的 CRM、通话历史和使用数据，为指定客户构建高管业务复盘（EBR）或价值演示文稿，采用你的品牌风格，并交付可编辑文件。绝不编造数字，未经你同意绝不发送给客户。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Krista Letz</span><a class="src" href="https://x.ai/bot/marketplace/bots/ebr-value-deck-builder" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-follow-through-agent">
+  <h3>GTM 闭环助手</h3>
+  <p class="orig">GTM Loop Closer</p>
+  <p class="desc">找出遗落在会议、邮件、Slack、CRM 或任务工具中的承诺、跟进事项和客户细节。展示证据，并准备好关闭每个闭环所需的回复、任务或更新。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Jon Grigull</span><a class="src" href="https://x.ai/bot/marketplace/bots/follow-through-agent" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-signal-prospector">
+  <h3>信号拓客</h3>
+  <p class="orig">Signal Prospector</p>
+  <p class="desc">在你 CRM 和产品数据中找出刚刚表现出意向的客户和人员，排序并起草首次触达。按计划运行，解释每个信号，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Krista Letz</span><a class="src" href="https://x.ai/bot/marketplace/bots/signal-prospector" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-startup-qa-bot">
+  <h3>初创公司 QA 机器人</h3>
+  <p class="orig">Startup QA Bot</p>
+  <p class="desc">每个工作日用自己的测试账号走查你的产品，告诉你上线了什么、下线了什么、哪里坏了（附复现步骤和截图），以及哪些通话需要你。读取自己的验证邮件或使用粘贴的验证码，绝不触碰真实数据。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Shub Gaur</span><a class="src" href="https://x.ai/bot/marketplace/bots/startup-qa-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-video-editor">
+  <h3>视频剪辑师</h3>
+  <p class="orig">Video Editor</p>
+  <p class="desc">用你的原始素材剪辑竖屏口播短视频：挑选最佳镜头、为你实际说的话配字幕，并添加 B-roll、动态图形和音乐。剪辑前先发送剪辑方案等你批准，检查每个剪切点的音画同步和画面问题，绝不发布。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Ethan Ng</span><a class="src" href="https://x.ai/bot/marketplace/bots/video-editor" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-account-research">
+  <h3>GTM 客户研究</h3>
+  <p class="orig">GTM Account Research</p>
+  <p class="desc">在会议、交易复盘或制定客户计划之前深入研究单个客户：汇总公司变化、关键人物、关系历史、悬而未决的问题，以及每项发现背后的来源。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">4 项技能</span><span class="author">作者：Stefan Markarian</span><a class="src" href="https://x.ai/bot/marketplace/bots/account-research" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-deal-qualification">
+  <h3>交易检查官</h3>
+  <p class="orig">Deal Inspector</p>
+  <p class="desc">依据真实通话文字稿，对照你的资格认定标准检查每个已推进阶段的交易。引用证据，指出缺失环节，建议推进或关闭，并提出 CRM 更新方案供你批准。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">4 项技能</span><span class="author">作者：Jon Grigull</span><a class="src" href="https://x.ai/bot/marketplace/bots/deal-qualification" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-dr-eggbot-v2">
+  <h3>dr eggbot</h3>
+  <p class="orig">dr eggbot</p>
+  <p class="desc">设计高质量的 Grok Bot。先问几个偏好问题，然后用 CreateAgent 创建。写代码的机器人遵循 poteto-mode 标准（只做一件事、不糙、可验证）；非编程机器人同样严格：单一职责、单一语气、明确的反职责、不留多余工具。随性，带点疯狂科学家气质……</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">4 项技能</span><span class="author">作者：Lauren Tan</span><a class="src" href="https://x.ai/bot/marketplace/bots/dr-eggbot-v2" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-hiring-activity-monitor">
+  <h3>招聘信号</h3>
+  <p class="orig">Hiring Signals</p>
+  <p class="desc">跟踪所选公司及招聘来源的招聘动态。突出有意义的变化，将其对应到客户和负责人，并把合适的背景信息带入研究或拓客流程。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Simon Lackowski</span><a class="src" href="https://x.ai/bot/marketplace/bots/hiring-activity-monitor" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-pipeline-health-and-forecast">
+  <h3>管道脉搏</h3>
+  <p class="orig">Pipeline Pulse</p>
+  <p class="desc">扫描你的完整销售管道，查找动态、停滞的下一步、预测风险和 CRM 缺口。展示整个管道的变化，并起草保持预测真实所需的更新。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Krista Letz</span><a class="src" href="https://x.ai/bot/marketplace/bots/pipeline-health-and-forecast" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-prospector">
+  <h3>GTM 拓客</h3>
+  <p class="orig">GTM Prospecting</p>
+  <p class="desc">把理想客户画像转化为聚焦的潜在客户名单，补充有用的背景信息，并检查是否存在既有关系。起草首封邮件和 LinkedIn 消息供你审阅。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Caro Scalercio</span><a class="src" href="https://x.ai/bot/marketplace/bots/prospector" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-tinkabot">
+  <h3>tinkabot</h3>
+  <p class="orig">tinkabot</p>
+  <p class="desc">把 API 封装成 Cursor/Agent 插件（MCP + 技能）。先确定数据形态，用最小可用脚手架，本地验证，然后一次性确认隶属关系并发布到 Marketplace 或 cursor.directory。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Lauren Tan</span><a class="src" href="https://x.ai/bot/marketplace/bots/tinkabot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-warm-intro-finder">
+  <h3>GTM 人脉</h3>
+  <p class="orig">GTM Connections</p>
+  <p class="desc">通过共同联系人、过往对话、共同经历和既往会议，找到进入目标客户的可靠路径。排序最佳路径，起草引荐请求，并跟踪后续进展。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Brian Joseph</span><a class="src" href="https://x.ai/bot/marketplace/bots/warm-intro-finder" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-dial-bot">
+  <h3>外呼机器人</h3>
+  <p class="orig">dial bot</p>
+  <p class="desc">当你提出要求时，通过 Bland AI 拨出电话，然后汇报结果。首次使用时会询问 Bland API 密钥和音色。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Matt Palmer</span><a class="src" href="https://x.ai/bot/marketplace/bots/dial-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-engineer-bot">
+  <h3>Lingxi 的工程师机器人</h3>
+  <p class="orig">Lingxi&#x27;s Engineer Bot</p>
+  <p class="desc">放手式工程主管。它接收任务、启动云端智能体、每 30 分钟检查一次 PR，只在需要合并时找你。适合想要这套流水线但不绑定特定仓库的人。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Lingxi Li</span><a class="src" href="https://x.ai/bot/marketplace/bots/engineer-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-projects-manager">
+  <h3>项目管理者</h3>
+  <p class="orig">Projects Manager</p>
+  <p class="desc">在 Notion 中运营团队项目：每个项目一行、每个项目一个频道，任务由你的专业机器人认领。你决策，智能体执行，它自己绝不做专业工作。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Eric Zakariasson</span><a class="src" href="https://x.ai/bot/marketplace/bots/projects-manager" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-skippy">
+  <h3>skippy</h3>
+  <p class="orig">skippy</p>
+  <p class="desc">旧金山街道清洁助手。粘贴地图坐标、地址或路口，它就会告诉你该路缘下一次官方清扫的时间。使用城市公开数据，绝不声称某处停车合法。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Matt Palmer</span><a class="src" href="https://x.ai/bot/marketplace/bots/skippy" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-tech-demos">
+  <h3>技术演示</h3>
+  <p class="orig">Tech Demos</p>
+  <p class="desc">工作日 X 书签侦察员，挑选一个新库做演示，征得批准后，在一个固定的 monorepo 中配合 Cursor 云端智能体规划并构建它。适合想要每天一个公开技术试验场、而不是更新日志摘要的人。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Matt Palmer</span><a class="src" href="https://x.ai/bot/marketplace/bots/tech-demos" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-writing-bot">
+  <h3>写作机器人</h3>
+  <p class="orig">Writing Bot</p>
+  <p class="desc">你的写作搭档，用于起草和修改文章、邮件、文档及其他文字内容。采用结构化修订流程，让结果更清晰、更有条理，同时保留作者的原意、事实和语气。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Matt Palmer</span><a class="src" href="https://x.ai/bot/marketplace/bots/writing-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-company-docs-q-a">
+  <h3>公司文档问答</h3>
+  <p class="orig">Company Docs Q&amp;A</p>
+  <p class="desc">优先依据实时文档回答产品与操作问题，其次使用已连接的知识来源，并且始终标注来源。为想要可信内部知识机器人的人而打造。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Anoop Baliga</span><a class="src" href="https://x.ai/bot/marketplace/bots/company-docs-q-a" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-cooper">
+  <h3>Cooper</h3>
+  <p class="orig">Cooper</p>
+  <p class="desc">面向 AI、科技、风投和商业的新闻智能体。每天早上 8 点通过 Slack 推送一份精炼的头条简报；工作日中午仅在确实有足够分量的消息时发送竞品提醒。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Tommy Hansen</span><a class="src" href="https://x.ai/bot/marketplace/bots/cooper" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-customer-call-coach">
+  <h3>客户通话教练与助手</h3>
+  <p class="orig">Customer Call Coach &amp; Assistant</p>
+  <p class="desc">在客户通话前为你准备简报，通话后根据你的表现给予辅导。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Anoop Baliga</span><a class="src" href="https://x.ai/bot/marketplace/bots/customer-call-coach" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-customer-question-drafter">
+  <h3>产品支持收件箱助手</h3>
+  <p class="orig">Product Support Inbox Assistant</p>
+  <p class="desc">帮你查找并起草产品问题的答复，未经你同意绝不发送邮件。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Anoop Baliga</span><a class="src" href="https://x.ai/bot/marketplace/bots/customer-question-drafter" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-dan-lanning">
+  <h3>Dan Lanning</h3>
+  <p class="orig">Dan Lanning</p>
+  <p class="desc">面向合作、赞助和高风险探索通话的推介与交付教练。复盘真实通话文字稿，给出尖锐、基于证据的辅导：哪些打动了对方、哪里需要收紧、以及具体的措辞升级建议，让反馈随时间不断累积。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Jenna Nanpei</span><a class="src" href="https://x.ai/bot/marketplace/bots/dan-lanning" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-frank">
+  <h3>frank</h3>
+  <p class="orig">frank</p>
+  <p class="desc">面向高管支持的 EA 幕僚长机器人：会议室安排、面试准备、管理层外联、Slack 频道盘点、表格与日历核对，以及生日/纪念日日历加载。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Natasha Kuo</span><a class="src" href="https://x.ai/bot/marketplace/bots/frank" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-luma-pages">
+  <h3>Luma 页面</h3>
+  <p class="orig">Luma Pages</p>
+  <p class="desc">为市场活动人员搭建并更新私密 Luma 活动页面：文案、品牌、报名设置、名额与候补名单，以及报名名单整理。可与 Notion 文档智能体搭配，让活动简报与 Luma 页面保持同步。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Jenna Nanpei</span><a class="src" href="https://x.ai/bot/marketplace/bots/luma-pages" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="from-grok-bot-team" data-name="dsh-plugin-grok-nightly-audit-engineer">
+  <h3>夜间审计工程师</h3>
+  <p class="orig">Nightly Audit Engineer</p>
+  <p class="desc">每晚审计整个代码库的工程审计员，然后按领域分批发出一项清理。适合希望养成先研究、再铺开清理习惯的团队；默认凌晨 4 点运行，并会询问运行时间。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Lingxi Li</span><a class="src" href="https://x.ai/bot/marketplace/bots/nightly-audit-engineer" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="sales"><h2>销售<span class="cnt">3</span></h2><div class="grid"><article class="card" data-cat="sales" data-name="dsh-plugin-grok-customer-stories">
+  <h3>客户证言台</h3>
+  <p class="orig">Customer Proof Desk</p>
+  <p class="desc">把通话笔记和文字稿转化为案例研究、客户好评和佐证材料。引述逐字保留你粘贴的原文，未经你同意绝不发布任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">11 项技能</span><span class="author">作者：Anoop Baliga</span><a class="src" href="https://x.ai/bot/marketplace/bots/customer-stories" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="sales" data-name="dsh-plugin-grok-sequencer">
+  <h3>序列器</h3>
+  <p class="orig">Sequencer</p>
+  <p class="desc">把外呼当作一项职能来运营：把符合你 ICP 的潜在客户排入队列，在跟踪表中维护序列状态，并把每次触达以从你已发邮件中学到的语气写成草稿。绝不发送，未经你同意绝不写入 CRM，绝不编造调研或联系人。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Simon Lackowski</span><a class="src" href="https://x.ai/bot/marketplace/bots/sequencer" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="sales" data-name="dsh-plugin-grok-pitch-deck-coach">
+  <h3>路演演示文稿教练</h3>
+  <p class="orig">Pitch Deck Coach</p>
+  <p class="desc">审阅路演演示文稿，报告投资人可能理解、相信、质疑和记住的内容，然后帮助强化故事、证据和幻灯片。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">4 项技能</span><span class="author">作者：Hiten Shah</span><a class="src" href="https://x.ai/bot/marketplace/bots/pitch-deck-coach" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="marketing"><h2>市场营销<span class="cnt">11</span></h2><div class="grid"><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-market-researcher">
+  <h3>市场研究员</h3>
+  <p class="orig">Market Researcher</p>
+  <p class="desc">跟踪竞品的营销方式：广告与创意、落地页、优惠、定价、渠道组合、搜索重叠和内容节奏，然后每周交出带有截图和营销反制建议的变化简报。绝不发帖、联系任何人、注册任何服务或在广告上花钱。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">10 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/market-researcher" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-marketing-analyst">
+  <h3>营销分析师</h3>
+  <p class="orig">Marketing Analyst</p>
+  <p class="desc">把广告平台导出数据转化为带解读的周报和月报，用真实数字及来源回答报表问题，并对照你设定的阈值监控花费。绝不触碰广告系列、绝不更改预算、未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/marketing-analyst" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-product-marketer">
+  <h3>产品营销员</h3>
+  <p class="orig">Product Marketer</p>
+  <p class="desc">学习你的产品、品牌和市场，把竞品研究转化为每条信息都要对照衡量的定位原则，并起草遵循这些原则的落地页、广告和邮件文案。只起草，绝不发布、发送或花钱。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">9 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/product-marketer" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-performance-marketer">
+  <h3>效果营销员</h3>
+  <p class="orig">Performance Marketer</p>
+  <p class="desc">把已批准的广告文案转化为用户已登录的广告平台中处于暂停状态的广告系列框架，用于消息测试，配有供你先审批的审核表和每步截图。未经明确同意绝不启用广告系列、提高预算、添加付款方式或花钱。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/performance-marketer" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-website-ops">
+  <h3>网站运维</h3>
+  <p class="orig">Website Ops</p>
+  <p class="desc">以 PR 形式从你的网站仓库交付网站改动，在聊天中提供改动前后的截图，并对 SEO、内容、速度、无障碍、CRO 和结构化数据运行有证据支撑的审计。未经你明确同意绝不合并、部署、更改 DNS 或修改分析配置。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">8 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/website-ops" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-human-copywriter">
+  <h3>文案人性化</h3>
+  <p class="orig">Copy Humanizer</p>
+  <p class="desc">编辑并重写草稿、邮件和页面，让它们读起来像真人写的。保留你的语气，展示每处修改及理由，绝不编造事实。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Massimo De Luisa</span><a class="src" href="https://x.ai/bot/marketplace/bots/human-copywriter" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-marketing-project-manager">
+  <h3>项目经理</h3>
+  <p class="orig">Project Manager</p>
+  <p class="desc">把活动或发布目标转化为横跨调研、定位、落地页、广告和分析的带日期计划，然后跟踪每个工作项、用截图催促进度，并执行合并与花费关卡。绝不合并、发布或花钱，也绝不替你审批。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Josh Kim</span><a class="src" href="https://x.ai/bot/marketplace/bots/marketing-project-manager" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-best-video-editor">
+  <h3>视频剪辑台</h3>
+  <p class="orig">Video Edit Desk</p>
+  <p class="desc">把上传的素材剪成片段、烧录字幕，并导出各平台适配尺寸。基于你的笔记工作，绝不覆盖原始文件。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：X Freeze</span><a class="src" href="https://x.ai/bot/marketplace/bots/best-video-editor" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-clip-bot">
+  <h3>剪辑机器人</h3>
+  <p class="orig">Clip Bot</p>
+  <p class="desc">在长录音中找到最精彩的片段，剪成带字幕的短视频。可从上传文件或链接开始，每个片段都附文字稿和时间戳。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：This Week in AI</span><a class="src" href="https://x.ai/bot/marketplace/bots/clip-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-x-brief">
+  <h3>X 简报</h3>
+  <p class="orig">X Brief</p>
+  <p class="desc">把你选定的 X 账号和话题转化为一份简短的每日简报。读取你的 X 连接或你粘贴的账号，绝不替你发帖。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Dan McAteer</span><a class="src" href="https://x.ai/bot/marketplace/bots/x-brief" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="marketing" data-name="dsh-plugin-grok-site-audit">
+  <h3>网站审计</h3>
+  <p class="orig">Site Audit</p>
+  <p class="desc">SEO + 内容 + 速度 + 无障碍 + CRO + 结构化数据审计。给出评分、P0/P1/P2 分级和证据 URL，每月输出差异对比。不编造指标。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Shimecki</span><a class="src" href="https://x.ai/bot/marketplace/bots/site-audit" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="operations"><h2>运营<span class="cnt">1</span></h2><div class="grid"><article class="card" data-cat="operations" data-name="dsh-plugin-grok-alfred">
+  <h3>Alfred</h3>
+  <p class="orig">Alfred</p>
+  <p class="desc">设计、审计并治理你的 Grok Bot 组织，使其对齐真实的公司目标，明确人类负责人，避免岗位重复。建议最小可用的结构，新机器人默认从零开始，未经你明确同意绝不创建或更改任何内容。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Robin Delta</span><a class="src" href="https://x.ai/bot/marketplace/bots/alfred" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="personal"><h2>个人<span class="cnt">9</span></h2><div class="grid"><article class="card" data-cat="personal" data-name="dsh-plugin-grok-home-robots">
+  <h3>家用机器人</h3>
+  <p class="orig">Home robots</p>
+  <p class="desc">通过聊天控制家用机器人：Segway Navimow、Matic 扫地机，以及其他官方扫地、割草和 Matter 机器人。每台设备连接一次，之后说开始、暂停、回充或询问状态即可。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Sawyer Merritt</span><a class="src" href="https://x.ai/bot/marketplace/bots/home-robots" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-flora">
+  <h3>Flora</h3>
+  <p class="orig">Flora</p>
+  <p class="desc">Flora 会维护一份私人家养植物养护日志和每周提醒。她在自己的电脑上建一份可以翻页的植物日记；即使别人也安装了她，你的植物也不会被复制过去。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">4 项技能</span><span class="author">作者：Rich Silver</span><a class="src" href="https://x.ai/bot/marketplace/bots/flora" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-credit-card-max">
+  <h3>信用卡收益最大化</h3>
+  <p class="orig">Credit Card Max</p>
+  <p class="desc">借助实时 Grok Finance（Plaid）把信用卡收益拉满：根据你的偏好（积分、返现、航司/酒店会籍）建议刷哪张卡；追踪账单抵扣并支持可静音提醒；标记用错卡的周期性支出；每月汇总积分与权益——不涉及预算管理。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">2 项技能</span><span class="author">作者：Trevin Chow</span><a class="src" href="https://x.ai/bot/marketplace/bots/credit-card-max" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-the-morning-newspaper">
+  <h3>晨报</h3>
+  <p class="orig">The Morning Newspaper</p>
+  <p class="desc">为你定制的报纸。从你的邮件和日历中取材，为你排版，在你睡觉时印刷。由 @karenxcheng 创作。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Karen X. Cheng</span><a class="src" href="https://x.ai/bot/marketplace/bots/the-morning-newspaper" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-webby">
+  <h3>Webby</h3>
+  <p class="orig">Webby</p>
+  <p class="desc">网站管理员。负责个人网站（重建 + 线上回退、独家长文和邮件通讯）以及公开的工作日仪表盘；也负责邮件通讯发送：新文章上线当天发独家版，次日上午在该日社交媒体脉搏结束后发摘要版。仅创建，不删除。去除 AI 味……</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Farzad</span><a class="src" href="https://x.ai/bot/marketplace/bots/webby" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-chief-health">
+  <h3>首席健康官</h3>
+  <p class="orig">Chief Health</p>
+  <p class="desc">你是首席健康官。每天询问训练是否完成；若未完成，就重写下一次训练安排，让这一周仍然成立。可读取任何已连接的健身、营养、可穿戴设备或检测数据来源。不要编造数字，绝不做诊断、开处方或发帖。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：AJAC</span><a class="src" href="https://x.ai/bot/marketplace/bots/chief-health" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-deal-hunting">
+  <h3>淘好价</h3>
+  <p class="orig">Deal Hunting</p>
+  <p class="desc">到手价购物助手：真实价格、运费和税费、优选零售商。可选关注清单。未经要求绝不下单。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Shimecki</span><a class="src" href="https://x.ai/bot/marketplace/bots/deal-hunting" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-love">
+  <h3>爱 ❤️</h3>
+  <p class="orig">Love ❤️</p>
+  <p class="desc">替你处理做一个好伴侣所需的琐事，让注意力回到真正重要的地方。提醒、研究并安排约会、餐厅和礼物；预订、购买和到场由你完成。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Danny Buck</span><a class="src" href="https://x.ai/bot/marketplace/bots/love" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="personal" data-name="dsh-plugin-grok-nyc-parent">
+  <h3>纽约家长</h3>
+  <p class="orig">NYC Parent</p>
+  <p class="desc">面向纽约市家长的家庭幕僚长。跟踪学校、日历、活动和家庭后勤，把收到的信息转化为下一步行动，并让成年人掌控花费、消息和隐私信息。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Dennison</span><a class="src" href="https://x.ai/bot/marketplace/bots/nyc-parent" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="product"><h2>产品<span class="cnt">4</span></h2><div class="grid"><article class="card" data-cat="product" data-name="dsh-plugin-grok-competitor-watching">
+  <h3>竞品观察</h3>
+  <p class="orig">Competitor Watch</p>
+  <p class="desc">跟踪竞品的定价、产品和招聘页面，出现真实变化时向你简报。从你粘贴的一组 URL 开始。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Shimecki</span><a class="src" href="https://x.ai/bot/marketplace/bots/competitor-watching" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="product" data-name="dsh-plugin-grok-pm-bot">
+  <h3>PM 机器人</h3>
+  <p class="orig">PM bot</p>
+  <p class="desc">充当你的产品经理。写出带日期的范围界定：做什么、不做什么、如何判断完成。你批准后工程才会开始。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Ulysses Ng</span><a class="src" href="https://x.ai/bot/marketplace/bots/pm-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="product" data-name="dsh-plugin-grok-product-idea-stress-test">
+  <h3>产品创意压力测试</h3>
+  <p class="orig">Product Idea Stress Test</p>
+  <p class="desc">为创始人调查产品或创业创意。呈现必须成立的条件、支持与反对的证据、最可能击垮它的假设，以及接下来该验证什么。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Hiten Shah</span><a class="src" href="https://x.ai/bot/marketplace/bots/product-idea-stress-test" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="product" data-name="dsh-plugin-grok-last30days">
+  <h3>last30days</h3>
+  <p class="orig">last30days</p>
+  <p class="desc">研究过去 30 天内人们围绕任何话题的真实言论。从 GitHub 安装最新的 last30days 技能，引导完成首次设置（通过 GitHub 获取 ScrapeCreators 的完整免费额度、X、YouTube 和免费 CLI 工具），然后基于 Reddit、X、YouTube、TikTok、Hacker News…… 撰写有依据的简报。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Matt Van Horn</span><a class="src" href="https://x.ai/bot/marketplace/bots/last30days" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="design"><h2>设计<span class="cnt">2</span></h2><div class="grid"><article class="card" data-cat="design" data-name="dsh-plugin-grok-sable-game-art">
+  <h3>游戏美术总监</h3>
+  <p class="orig">Game Art Director</p>
+  <p class="desc">把游戏概念转化为风格指南、配色方案和供你图像工具使用的提示词表。可切分精灵图，并检查你的美术资源是否存在配色和网格偏移。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">6 项技能</span><span class="author">作者：Danny Limanseta</span><a class="src" href="https://x.ai/bot/marketplace/bots/sable-game-art" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="design" data-name="dsh-plugin-grok-imogen">
+  <h3>Imogen</h3>
+  <p class="orig">Imogen</p>
+  <p class="desc">Imogen the Impala 图像解读师会撰写简短、可复制的替代文本，聚焦图像中最重要的部分，让视障人士也能访问这些图像。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">0 项技能</span><span class="author">作者：Kent C. Dodds</span><a class="src" href="https://x.ai/bot/marketplace/bots/imogen" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="engineering"><h2>工程<span class="cnt">4</span></h2><div class="grid"><article class="card" data-cat="engineering" data-name="dsh-plugin-grok-seed-a91e4c">
+  <h3>SWE</h3>
+  <p class="orig">SWE</p>
+  <p class="desc">Cursor 的软件工程师机器人：写代码、处理问题、监控生产环境等等。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">7 项技能</span><span class="author">作者：Cursor</span><a class="src" href="https://x.ai/bot/marketplace/bots/seed-a91e4c" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="engineering" data-name="dsh-plugin-grok-engineering-lead">
+  <h3>工程主管</h3>
+  <p class="orig">Engineering Lead</p>
+  <p class="desc">负责整个闭环的工程主管：把工作拆给 Cloud Agents、跟进 CI 与评审、按工作日节奏推进停滞项，只在受阻、可合并或完成时联系你。最适合工程主管和高级用户。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">5 项技能</span><span class="author">作者：Lauren Tan</span><a class="src" href="https://x.ai/bot/marketplace/bots/engineering-lead" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="engineering" data-name="dsh-plugin-grok-qa-bot">
+  <h3>QA 机器人</h3>
+  <p class="orig">QA bot</p>
+  <p class="desc">在线上部署中充当你的 QA：运行验收清单，在上线前给出通过或失败。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Ulysses Ng</span><a class="src" href="https://x.ai/bot/marketplace/bots/qa-bot" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="engineering" data-name="dsh-plugin-grok-researchy">
+  <h3>Researchy</h3>
+  <p class="orig">Researchy</p>
+  <p class="desc">研究与事实核查台，每次运行都使用最新的 Grok 模型并联网搜索。适合需要带来源、带日期的论断，而不是仅凭训练数据的答案的人。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab lab-skill">1 项技能</span><span class="author">作者：Farzad</span><a class="src" href="https://x.ai/bot/marketplace/bots/researchy" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section><section class="cat" data-cat="recruiting-people"><h2>招聘与人事<span class="cnt">0</span></h2><div class="grid"></div></section><section class="cat" data-cat="other"><h2>其他<span class="cnt">2</span></h2><div class="grid"><article class="card" data-cat="other" data-name="dsh-plugin-grok-tradbot-2">
+  <h3>Tradbot</h3>
+  <p class="orig">Tradbot</p>
+  <p class="desc">监视你的个人邮件和日历，让学校表格、账单和 RSVP 不遗漏。起草回复，发现接送冲突，未经你同意绝不发送。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">3 项技能</span><span class="author">作者：Claire Vo</span><a class="src" href="https://x.ai/bot/marketplace/bots/tradbot-2" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article><article class="card" data-cat="other" data-name="dsh-plugin-grok-overheard">
+  <h3>旁听</h3>
+  <p class="orig">Overheard</p>
+  <p class="desc">监视 Reddit、Hacker News、新闻网站和 X 上对你的名字、品牌和网址的第三方提及，当有足够分量的内容时发送工作日简报。没有动静的日子保持安静，绝不替你发帖。</p>
+  <p class="meta"><span class="lab">Grok Bot</span><span class="lab">含例行任务</span><span class="lab lab-skill">2 项技能</span><span class="author">作者：Lenny Rachitsky</span><a class="src" href="https://x.ai/bot/marketplace/bots/overheard" target="_blank" rel="noreferrer">原始页面 ↗</a></p>
+</article></div></section>
+<p class="empty" id="empty">没有匹配的机器人</p>
+</main>
+<script>
+const q = document.getElementById('q');
+const cards = [...document.querySelectorAll('.card')];
+const cats = [...document.querySelectorAll('section.cat')];
+const empty = document.getElementById('empty');
+q.addEventListener('input', () => {
+  const t = q.value.trim().toLowerCase();
+  let shown = 0;
+  for (const c of cards) {
+    const hit = !t || c.textContent.toLowerCase().includes(t);
+    c.classList.toggle('hidden', !hit);
+    if (hit) shown++;
+  }
+  for (const s of cats) {
+    const any = [...s.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
+    s.classList.toggle('hidden', !any);
+  }
+  empty.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>
